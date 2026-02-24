@@ -1,0 +1,7 @@
+@PlanService_HostAddress = http://localhost:5260
+
+
+
+###
+GET {{PlanService_HostAddress}}/api/plans/
+Accept: application/json
