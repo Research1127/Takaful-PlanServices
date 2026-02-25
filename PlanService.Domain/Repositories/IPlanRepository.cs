@@ -5,4 +5,5 @@ namespace PlanService.Domain.Repositories;
 public interface IPlanRepository
 {
     Task<IEnumerable<Plan>> GetAllAsync();
+    Task<Plan?> GetByIdAsync(int id);
 }

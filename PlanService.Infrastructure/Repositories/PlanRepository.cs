@@ -13,4 +13,10 @@ public class PlanRepository(PlanDbContext dbContext) : IPlanRepository
         var plans = await dbContext.Plans.ToListAsync();
         return plans;
     }
+
+    public async Task<Plan?> GetByIdAsync(int id)
+    {
+        var plan = await dbContext.Plans.FirstOrDefaultAsync(p => p.Id == id);
+        return plan;
+    }
 }

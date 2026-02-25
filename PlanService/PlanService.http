@@ -2,6 +2,10 @@
 
 
 
-###
+### Get All
 GET {{PlanService_HostAddress}}/api/plans/
+Accept: application/json
+
+### Get By Id
+GET {{PlanService_HostAddress}}/api/plans/2
 Accept: application/json
