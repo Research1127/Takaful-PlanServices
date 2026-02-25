@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PlanService.Application.Plans.Commands;
 using PlanService.Application.Plans.Queries.GetAllQuery;
 using PlanService.Application.Plans.Queries.GetByIdQuery;
 
@@ -17,7 +18,7 @@ public class PlansController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetPlan(int id)
+    public async Task<IActionResult> GetPlanById(int id)
     {
         var plan = await mediator.Send(new GetByIdQuery(id));
         if (plan == null)
@@ -25,5 +26,12 @@ public class PlansController(IMediator mediator) : ControllerBase
             return NotFound();
         }
         return Ok(plan);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> CreatePlan(CreatePlanCommand command)
+    {
+        int id = await mediator.Send(command);
+        return CreatedAtAction(nameof(GetPlanById), new {id}, null);
     }
 }

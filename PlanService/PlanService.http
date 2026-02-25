@@ -9,3 +9,16 @@ Accept: application/json
 ### Get By Id
 GET {{PlanService_HostAddress}}/api/plans/2
 Accept: application/json
+
+### Get By Id
+POST {{PlanService_HostAddress}}/api/plans
+Content-Type: application/json
+
+{
+  "name": "Test Plan 3",
+  "description": "string",
+  "contributionAmount": 10,
+  "coverageAmount": 20,
+  "minEntryAge": 10,
+  "maxEntryAge": 40
+}

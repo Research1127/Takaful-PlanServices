@@ -19,4 +19,11 @@ public class PlanRepository(PlanDbContext dbContext) : IPlanRepository
         var plan = await dbContext.Plans.FirstOrDefaultAsync(p => p.Id == id);
         return plan;
     }
+
+    public async Task<int> CreatePlan(Plan entity)
+    {
+        dbContext.Plans.Add(entity);
+        await dbContext.SaveChangesAsync();
+        return entity.Id;
+    }
 }
