@@ -9,4 +9,6 @@ public interface IPlanRepository
 
     Task<int> CreatePlan(Plan entity);
 
+    Task DeletePlan(Plan entity);
+
 }

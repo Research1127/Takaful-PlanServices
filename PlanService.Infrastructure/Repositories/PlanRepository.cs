@@ -26,4 +26,10 @@ public class PlanRepository(PlanDbContext dbContext) : IPlanRepository
         await dbContext.SaveChangesAsync();
         return entity.Id;
     }
+
+    public async Task DeletePlan(Plan entity)
+    {
+        dbContext.Plans.Remove(entity);
+        await dbContext.SaveChangesAsync();
+    }
 }

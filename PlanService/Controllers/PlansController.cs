@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PlanService.Application.Plans.Commands;
+using PlanService.Application.Plans.Commands.DeletePlan;
 using PlanService.Application.Plans.Queries.GetAllQuery;
 using PlanService.Application.Plans.Queries.GetByIdQuery;
 
@@ -18,7 +19,7 @@ public class PlansController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetPlanById(int id)
+    public async Task<IActionResult> GetPlanById( [FromRoute]int id)
     {
         var plan = await mediator.Send(new GetByIdQuery(id));
         if (plan == null)
@@ -33,5 +34,12 @@ public class PlansController(IMediator mediator) : ControllerBase
     {
         int id = await mediator.Send(command);
         return CreatedAtAction(nameof(GetPlanById), new {id}, null);
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeletePlan( [FromRoute]int id)
+    {
+        await mediator.Send(new DeletePlanCommand(id));
+        return NotFound();
     }
 }

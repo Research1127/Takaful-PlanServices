@@ -10,7 +10,7 @@ Accept: application/json
 GET {{PlanService_HostAddress}}/api/plans/2
 Accept: application/json
 
-### Get By Id
+### Create New Plan
 POST {{PlanService_HostAddress}}/api/plans
 Content-Type: application/json
 
@@ -22,3 +22,7 @@ Content-Type: application/json
   "minEntryAge": 10,
   "maxEntryAge": 40
 }
+
+### Delete Plan
+DELETE {{PlanService_HostAddress}}/api/plans/1011
+Content-Type: application/json
