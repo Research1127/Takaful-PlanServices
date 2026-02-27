@@ -15,12 +15,12 @@ POST {{PlanService_HostAddress}}/api/plans
 Content-Type: application/json
 
 {
-  "name": "Test Plan PATCH 2",
+  "name": "Test Fluent Validation",
   "description": "string",
   "contributionAmount": 10,
   "coverageAmount": 20,
-  "minEntryAge": 10,
-  "maxEntryAge": 40
+  "minEntryAge": 18,
+  "maxEntryAge": 160
 }
 
 ### Delete Plan
