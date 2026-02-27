@@ -20,7 +20,7 @@ Content-Type: application/json
   "contributionAmount": 10,
   "coverageAmount": 20,
   "minEntryAge": 18,
-  "maxEntryAge": 160
+  "maxEntryAge": 60
 }
 
 ### Delete Plan
@@ -28,14 +28,14 @@ DELETE {{PlanService_HostAddress}}/api/plans/1011
 Content-Type: application/json
 
 ### Create New Plan
-PATCH {{PlanService_HostAddress}}/api/plans/1012
+PATCH {{PlanService_HostAddress}}/api/plans/1014
 Content-Type: application/json
 
 {
-  "name": "Test Plan PATCHING DATA",
+  "name": "Test Updating Fluent Validation",
   "description": "I am patching data now",
   "contributionAmount": 10,
   "coverageAmount": 20,
-  "minEntryAge": 10,
-  "maxEntryAge": 40
+  "minEntryAge": 56,
+  "maxEntryAge": 60
 }
