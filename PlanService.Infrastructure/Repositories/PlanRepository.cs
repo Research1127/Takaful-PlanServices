@@ -32,4 +32,7 @@ public class PlanRepository(PlanDbContext dbContext) : IPlanRepository
         dbContext.Plans.Remove(entity);
         await dbContext.SaveChangesAsync();
     }
+    
+    public async Task SaveChanges()=>await dbContext.SaveChangesAsync();
 }
+

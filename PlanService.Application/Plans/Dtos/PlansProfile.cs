@@ -1,5 +1,6 @@
 using AutoMapper;
 using PlanService.Application.Plans.Commands;
+using PlanService.Application.Plans.Commands.UpdatePlan;
 using PlanService.Domain.Entities;
 
 namespace PlanService.Application.Plans.Dtos;
@@ -11,5 +12,7 @@ public class PlansProfile : Profile
         CreateMap<Plan, PlanDto>();
         
         CreateMap<CreatePlanCommand, Plan>();
+        
+        CreateMap<UpdatePlanCommand, Plan>();
     }
 }

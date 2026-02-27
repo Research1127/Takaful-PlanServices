@@ -15,7 +15,7 @@ POST {{PlanService_HostAddress}}/api/plans
 Content-Type: application/json
 
 {
-  "name": "Test Plan 3",
+  "name": "Test Plan PATCH 2",
   "description": "string",
   "contributionAmount": 10,
   "coverageAmount": 20,
@@ -26,3 +26,16 @@ Content-Type: application/json
 ### Delete Plan
 DELETE {{PlanService_HostAddress}}/api/plans/1011
 Content-Type: application/json
+
+### Create New Plan
+PATCH {{PlanService_HostAddress}}/api/plans/1012
+Content-Type: application/json
+
+{
+  "name": "Test Plan PATCHING DATA",
+  "description": "I am patching data now",
+  "contributionAmount": 10,
+  "coverageAmount": 20,
+  "minEntryAge": 10,
+  "maxEntryAge": 40
+}

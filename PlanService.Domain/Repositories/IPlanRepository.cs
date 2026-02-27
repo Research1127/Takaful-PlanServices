@@ -11,4 +11,6 @@ public interface IPlanRepository
 
     Task DeletePlan(Plan entity);
 
+    Task SaveChanges();
+
 }
