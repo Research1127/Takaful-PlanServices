@@ -2,6 +2,9 @@
 using PlanService.Application.Extensions;
 using PlanService.Infrastructure.Extensions;
 using PlanService.Infrastructure.Seeders;
+using Serilog;
+using Serilog.Sinks.SystemConsole.Themes;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
+
+// Serilog Part
+builder.Host.UseSerilog((context, configuration) => configuration
+    .WriteTo.Console(theme: AnsiConsoleTheme.Code,
+        outputTemplate: "[{Timestamp: dd:MM:yyyy HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
+    .ReadFrom.Configuration(context.Configuration));
 
 
 var app = builder.Build();
